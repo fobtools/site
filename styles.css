@@ -20,7 +20,7 @@ header {
 main {
     padding: 20px;
     width: 100%;
-    max-width: 1200px; /* Increased width for larger screen support */
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +29,7 @@ main {
 form {
     margin-bottom: 20px;
     width: 100%;
-    max-width: 600px; /* Set a max-width for the form */
+    max-width: 600px;
 }
 
 input, button {
@@ -41,22 +41,22 @@ input, button {
 }
 
 input {
-    max-width: calc(100% - 22px); /* Ensure inputs do not overflow */
+    max-width: calc(100% - 22px);
 }
 
 button {
-    max-width: calc(100% - 22px); /* Ensure button does not overflow */
+    max-width: calc(100% - 22px);
 }
 
 section {
     width: 100%;
-    max-width: 1200px; /* Ensure the section does not exceed a reasonable width */
-    margin-top: 20px; /* Add margin to separate sections */
+    max-width: 1200px;
+    margin-top: 20px;
 }
 
 h2 {
-    margin: 0 0 20px 0; /* Ensure title has space above and below */
-    text-align: center; /* Center-align title */
+    margin: 0 0 20px 0;
+    text-align: center;
 }
 
 ul {
@@ -64,7 +64,7 @@ ul {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive 3-column layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     width: 100%;
 }
@@ -74,5 +74,19 @@ li {
     padding: 10px;
     border-radius: 5px;
     background-color: #f9f9f9;
-    text-align: center; /* Center-align text inside list items */
+    text-align: center;
+}
+
+li img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
 }
