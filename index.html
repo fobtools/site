@@ -3,32 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>导航页面</title>
+    <title>自动获取网站图标的导航页面</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <div class="app-icon">
-            <a href="https://www.google.com" target="_blank">
-                <img src="images/google.png" alt="Google">
-                <p>Google</p>
-            </a>
-        </div>
-        <div class="app-icon">
-            <a href="https://www.facebook.com" target="_blank">
-                <img src="images/facebook.png" alt="Facebook">
-                <p>Facebook</p>
-            </a>
-        </div>
-        <div class="app-icon">
-            <a href="https://www.youtube.com" target="_blank">
-                <img src="images/youtube.png" alt="YouTube">
-                <p>YouTube</p>
-            </a>
-        </div>
-        <!-- 继续添加其他图标 -->
+    <div class="container" id="app-container">
+        <!-- 图标会通过 JavaScript 动态插入到这里 -->
     </div>
 
+    <script src="scripts.js"></script>
 </body>
 </html>
