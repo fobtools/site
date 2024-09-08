@@ -55,10 +55,12 @@ button {
     width: 100%;
     max-width: 1200px; /* Ensure the list does not exceed a reasonable width */
     margin-top: 20px; /* Add margin to separate from title */
+    text-align: center; /* Center-align text inside grid items */
 }
 
 #site-list h2 {
     margin: 0 0 20px 0; /* Ensure title has space above and below */
+    text-align: center; /* Center-align title */
 }
 
 #site-list ul {
@@ -76,4 +78,5 @@ button {
     padding: 10px;
     border-radius: 5px;
     background-color: #f9f9f9;
+    text-align: center; /* Center-align text inside list items */
 }
