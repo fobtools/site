@@ -3,23 +3,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const siteItems = document.getElementById('site-items');
     const exportBtn = document.getElementById('export-btn');
 
-    // Load existing sites from localStorage
     function loadSites() {
         const sites = JSON.parse(localStorage.getItem('sites')) || [];
         siteItems.innerHTML = '';
-        sites.forEach(site => {
-            addSiteToList(site.name, site.url);
+        sites.forEach((site, index) => {
+            addSiteToList(site.name, site.url, index);
         });
     }
 
-    // Save sites to localStorage
     function saveSite(name, url) {
         const sites = JSON.parse(localStorage.getItem('sites')) || [];
         sites.push({ name, url });
         localStorage.setItem('sites', JSON.stringify(sites));
     }
 
-    // Fetch favicon from the website
+    function updateSite(index, name, url) {
+        const sites = JSON.parse(localStorage.getItem('sites')) || [];
+        sites[index] = { name, url };
+        localStorage.setItem('sites', JSON.stringify(sites));
+    }
+
+    function deleteSite(index) {
+        const sites = JSON.parse(localStorage.getItem('sites')) || [];
+        sites.splice(index, 1);
+        localStorage.setItem('sites', JSON.stringify(sites));
+    }
+
     function getFaviconUrl(url) {
         const link = document.createElement('link');
         link.rel = 'icon';
@@ -28,44 +37,62 @@ document.addEventListener('DOMContentLoaded', () => {
         return link.href;
     }
 
-    // Add site to the list
-    function addSiteToList(name, url) {
+    function addSiteToList(name, url, index) {
         const listItem = document.createElement('li');
 
-        // Fetch favicon URL
         const faviconUrl = getFaviconUrl(url);
 
-        // Create image element for favicon
         const img = document.createElement('img');
         img.src = faviconUrl;
         img.onerror = () => {
             img.src = 'https://www.example.com/default-icon.png'; // Fallback icon if favicon is not available
         };
 
-        // Create anchor element for the website name
         const link = document.createElement('a');
         link.href = url;
         link.target = '_blank';
         link.textContent = name;
 
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.className = 'edit-btn';
+        editBtn.addEventListener('click', () => {
+            const newName = prompt('Enter new name:', name);
+            const newUrl = prompt('Enter new URL:', url);
+            if (newName && newUrl) {
+                updateSite(index, newName, newUrl);
+                loadSites();
+            }
+        });
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to delete this site?')) {
+                deleteSite(index);
+                loadSites();
+            }
+        });
+
         listItem.appendChild(img);
         listItem.appendChild(link);
+        listItem.appendChild(editBtn);
+        listItem.appendChild(deleteBtn);
         siteItems.appendChild(listItem);
     }
 
-    // Handle form submission
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         const name = document.getElementById('site-name').value;
         const url = document.getElementById('site-url').value;
         if (name && url) {
             saveSite(name, url);
-            addSiteToList(name, url);
+            addSiteToList(name, url, JSON.parse(localStorage.getItem('sites')).length - 1);
             form.reset();
         }
     });
 
-    // Export data to CSV
     exportBtn.addEventListener('click', () => {
         const sites = JSON.parse(localStorage.getItem('sites')) || [];
         let csvContent = "data:text/csv;charset=utf-8,Name,URL\n";
@@ -81,6 +108,5 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeChild(link);
     });
 
-    // Initial load of sites
     loadSites();
 });
