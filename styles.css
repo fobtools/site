@@ -54,6 +54,11 @@ button {
     gap: 10px; /* Space between items */
     width: 100%;
     max-width: 1200px; /* Ensure the list does not exceed a reasonable width */
+    margin-top: 20px; /* Add margin to separate from title */
+}
+
+#site-list h2 {
+    margin: 0 0 20px 0; /* Ensure title has space above and below */
 }
 
 #site-list ul {
