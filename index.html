@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>动态标签页示例</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>网址收藏器</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="tabs">
-        <button class="tab-button active" data-tab="tab1">标签 1</button>
-        <button class="tab-button" data-tab="tab2">标签 2</button>
-        <button class="tab-button" data-tab="tab3">标签 3</button>
+    <div class="container">
+        <h1>我的网址收藏</h1>
+        <form id="urlForm">
+            <input type="text" id="siteName" placeholder="网站名称" required>
+            <input type="url" id="siteUrl" placeholder="网站地址" required>
+            <button type="submit">添加网址</button>
+        </form>
+
+        <div id="urlList" class="url-list"></div>
+        
+        <div class="import-export">
+            <button id="exportBtn">导出网址</button>
+            <input type="file" id="importInput" accept=".json">
+        </div>
     </div>
 
-    <div class="tab-content" id="tab1">
-        <h2>内容 1</h2>
-        <p>这是第一个标签的内容。</p>
-    </div>
-    <div class="tab-content" id="tab2" style="display:none;">
-        <h2>内容 2</h2>
-        <p>这是第二个标签的内容。</p>
-    </div>
-    <div class="tab-content" id="tab3" style="display:none;">
-        <h2>内容 3</h2>
-        <p>这是第三个标签的内容。</p>
-    </div>
-
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
