@@ -1,123 +1,30 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+}
+
+.tabs {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    width: 100%;
-    text-align: center;
-}
-
-main {
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-form {
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 600px;
-}
-
-input, button {
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-input {
-    max-width: calc(100% - 22px);
-}
-
-button {
-    max-width: calc(100% - 22px);
-}
-
-section {
-    width: 100%;
-    max-width: 1200px;
-    margin-top: 20px;
-}
-
-h2 {
-    margin: 0 0 20px 0;
-    text-align: center;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    width: 100%;
-}
-
-li {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    position: relative; /* Needed for absolute positioning of buttons */
-}
-
-li img {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 10px; /* Space between link and buttons */
-}
-
-li button {
-    margin: 5px;
-    padding: 5px 10px;
-    font-size: 14px;
     cursor: pointer;
 }
 
-li .edit-btn {
-    background-color: #ffa500; /* Orange color for edit button */
-    color: #fff;
+.tab-button {
+    background-color: #f1f1f1;
     border: none;
-    border-radius: 3px;
+    padding: 10px 20px;
+    margin: 0;
+    border-radius: 5px 5px 0 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-li .delete-btn {
-    background-color: #ff0000; /* Red color for delete button */
-    color: #fff;
-    border: none;
-    border-radius: 3px;
+.tab-button.active {
+    background-color: #ddd;
 }
 
-li .edit-btn, li .delete-btn {
-    display: block;
-    width: 100%;
+.tab-content {
+    border: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
+    padding: 20px;
+    background-color: #f9f9f9;
 }
