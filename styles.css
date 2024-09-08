@@ -65,7 +65,7 @@ ul {
     margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px; /* Adjust the gap between items */
+    gap: 20px;
     width: 100%;
 }
 
@@ -78,20 +78,46 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px; /* Adjust the margin around each list item */
+    margin: 10px;
+    position: relative; /* Needed for absolute positioning of buttons */
 }
 
 li img {
-    width: 48px; /* Adjust the icon size */
+    width: 48px;
     height: 48px;
-    margin-bottom: 10px; /* Space between icon and name */
-    margin-top: 10px; /* Space above the icon */
-    margin-left: 5px; /* Space on the left side of the icon */
-    margin-right: 5px; /* Space on the right side of the icon */
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    margin-bottom: 10px; /* Space between link and buttons */
+}
+
+li button {
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+li .edit-btn {
+    background-color: #ffa500; /* Orange color for edit button */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}
+
+li .delete-btn {
+    background-color: #ff0000; /* Red color for delete button */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}
+
+li .edit-btn, li .delete-btn {
+    display: block;
+    width: 100%;
 }
