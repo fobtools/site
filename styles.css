@@ -85,6 +85,9 @@ li img {
     width: 48px; /* Adjust the icon size */
     height: 48px;
     margin-bottom: 10px; /* Space between icon and name */
+    margin-top: 10px; /* Space above the icon */
+    margin-left: 5px; /* Space on the left side of the icon */
+    margin-right: 5px; /* Space on the right side of the icon */
 }
 
 li a {
