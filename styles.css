@@ -48,22 +48,18 @@ button {
     max-width: calc(100% - 22px); /* Ensure button does not overflow */
 }
 
-#site-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive 3-column layout */
-    gap: 10px; /* Space between items */
+section {
     width: 100%;
-    max-width: 1200px; /* Ensure the list does not exceed a reasonable width */
-    margin-top: 20px; /* Add margin to separate from title */
-    text-align: center; /* Center-align text inside grid items */
+    max-width: 1200px; /* Ensure the section does not exceed a reasonable width */
+    margin-top: 20px; /* Add margin to separate sections */
 }
 
-#site-list h2 {
+h2 {
     margin: 0 0 20px 0; /* Ensure title has space above and below */
     text-align: center; /* Center-align title */
 }
 
-#site-list ul {
+ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -73,7 +69,7 @@ button {
     width: 100%;
 }
 
-#site-list li {
+li {
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
