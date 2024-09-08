@@ -8,9 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const sites = JSON.parse(localStorage.getItem('sites')) || [];
         siteItems.innerHTML = '';
         sites.forEach(site => {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `<a href="${site.url}" target="_blank">${site.name}</a>`;
-            siteItems.appendChild(listItem);
+            addSiteToList(site.name, site.url);
         });
     }
 
@@ -21,6 +19,40 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('sites', JSON.stringify(sites));
     }
 
+    // Fetch favicon from the website
+    function getFaviconUrl(url) {
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.href = url + '/favicon.ico';
+        document.head.appendChild(link);
+        return link.href;
+    }
+
+    // Add site to the list
+    function addSiteToList(name, url) {
+        const listItem = document.createElement('li');
+
+        // Fetch favicon URL
+        const faviconUrl = getFaviconUrl(url);
+
+        // Create image element for favicon
+        const img = document.createElement('img');
+        img.src = faviconUrl;
+        img.onerror = () => {
+            img.src = 'https://www.example.com/default-icon.png'; // Fallback icon if favicon is not available
+        };
+
+        // Create anchor element for the website name
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.textContent = name;
+
+        listItem.appendChild(img);
+        listItem.appendChild(link);
+        siteItems.appendChild(listItem);
+    }
+
     // Handle form submission
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -28,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = document.getElementById('site-url').value;
         if (name && url) {
             saveSite(name, url);
-            loadSites();
+            addSiteToList(name, url);
             form.reset();
         }
     });
